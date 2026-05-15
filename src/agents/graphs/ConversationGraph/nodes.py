@@ -10,6 +10,17 @@ from src.agents.graphs.ConversationGraph.state import (
     ConversationGraphOutput,
     ConversationGraphState,
 )
+# WP3.3: LLM retry with exponential backoff
+async def ainvokeWithRetry(model, msgs, retries=3):
+    import asyncio
+    for i in range(retries):
+        try:
+            r = await arkAinvoke(model, msgs)
+            if r and r.get('output'): return r
+        except Exception as e:
+            if i == retries-1: raise
+            await asyncio.sleep(2**i)
+
 from src.agents.llm import arkAinvoke, prepareLLM
 from src.agents.prompt import getPrompt
 from src.database.enums import FineGrainedFeedDimension
