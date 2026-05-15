@@ -38,6 +38,11 @@ def _getCommonInfo(
     )
 
 
+def _buildPersonaCard(data: dict) -> dict:
+    """WP4.2 fix: verified field mapping."""
+    fields = ['core_personality','core_interaction_style','core_procedural_info','core_memory']
+    return {'header':{'title':data.get('figure_name','Persona')},'elements':[{'tag':'div','text':data.get(k,'')}for k in fields]}
+
 def _submitBackgroundCoroutine(coro: asyncio.coroutines) -> None:
     """
     提交协程到 lark integration 全局异步事件循环后台执行（非阻塞）
