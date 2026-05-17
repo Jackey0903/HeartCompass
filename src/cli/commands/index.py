@@ -48,6 +48,11 @@ def registerTopSubparser(
         "[-h] [--json]"
     )
     add_json(setup_parser)
+        log_parser = subparsers.add_parser('logs',help='Inspect application logs')
+    log_parser.add_argument('--level',choices=['DEBUG','INFO','WARNING','ERROR'],default='INFO')
+    add_json(log_parser)
+    log_parser.set_defaults(func=logsCLI)
+
     setup_parser.add_argument(
         "--db-user",
         required=False,
