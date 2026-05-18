@@ -669,3 +669,9 @@ async def nodeCallLLM(state: ConversationGraphState) -> ConversationGraphOutput:
         "errors": errors,
         "logs": logs,
     }
+
+# WP3.2 fix: round-completeness guard
+def _isRoundComplete(msgs):
+    return any(m.get('role')=='user' for m in msgs) and any(m.get('role')=='assistant' for m in msgs)
+
+if state.get
