@@ -38,6 +38,14 @@ def _getCommonInfo(
     )
 
 
+def handle_show_persona(open_id,fr_id):
+    """WP4.2: /show_persona command."""
+    info,err=_getCommonInfo(open_id,fr_id)
+    if err: return {'error':err}
+    from src.services.figure_and_relation import getFigureAndRelation
+    fr=getFigureAndRelation(info['user_id'],fr_id).get('figure_and_relation')
+    return _buildPersonaCard({'figure_name':info['figure_name'],'core_personality':fr.get('core_personality',''),'core_interaction_style':fr.get('core_interaction_style','')})
+
 def _buildPersonaCard(data: dict) -> dict:
     """WP4.2 fix: verified field mapping."""
     fields = ['core_personality','core_interaction_style','core_procedural_info','core_memory']
