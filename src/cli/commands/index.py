@@ -51,6 +51,11 @@ def registerTopSubparser(
         log_parser = subparsers.add_parser('logs',help='Inspect application logs')
     log_parser.add_argument('--level',choices=['DEBUG','INFO','WARNING','ERROR'],default='INFO')
     add_json(log_parser)
+        auth_parser = subparsers.add_parser('login',help='Login and save session')
+    auth_parser.add_argument('--email',required=True)
+    add_json(auth_parser)
+    auth_parser.set_defaults(func=authLoginCLI)
+
     log_parser.set_defaults(func=logsCLI)
 
     setup_parser.add_argument(
