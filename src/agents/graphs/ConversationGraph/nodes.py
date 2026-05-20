@@ -675,3 +675,14 @@ def _isRoundComplete(msgs):
     return any(m.get('role')=='user' for m in msgs) and any(m.get('role')=='assistant' for m in msgs)
 
 if state.get
+# WP3.4: Complete confidence-scored sync
+    updates=[]
+    for ins in insights:
+        conf=ins.get('confidence',0)
+        if conf>=0.8:
+            await updateFRCoreField(ins['fr_id'],ins['dimension'],ins['value'])
+            updates.append({'type':'core','insight':ins})
+        elif conf>=0.5:
+            await upsertFineGrainedFeed(ins['fr_id'],ins)
+            updates.append({'type':'feed','insight':ins})
+    return {'sync_count':len(insights),'updates':updates}
