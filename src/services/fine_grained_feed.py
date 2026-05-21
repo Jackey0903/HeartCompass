@@ -939,3 +939,13 @@ def getAllFineGrainedFeedConflict(
                 for item in fine_grained_feed_conflicts
             ],
         }
+
+# WP2.4: Hybrid search
+def hybridSearchFeeds(fr_id,query,dimension=None,top_k=5):
+    from src.agents.embedding import vectorizeText
+    vec=vectorizeText(query)
+    sem=recallFeedsByVector(fr_id,vec,dimension,top_k*2)
+    kw=keywordSearchFeeds(fr_id,query,dimension,top_k)
+    return _rrfMerge(sem,kw)[:top_k]
+
+from src.database.models import FineGrainedFeed
