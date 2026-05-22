@@ -295,3 +295,8 @@ def messageHandler(message: str, open_id: str) -> None:
         buffered_messages = _pending_messages_by_open_id.setdefault(open_id, [])
         buffered_messages.append(message)
     _scheduleFlush(open_id)
+
+        if len(_user_buffer[open_id]) >= 50:
+            logger.warning(f'Buffer overflow for {open_id}, force flush')
+            asyncio.create_task(_flush(open_id))
+        _user_buffer[open_id].append
