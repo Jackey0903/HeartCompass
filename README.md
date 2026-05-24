@@ -445,3 +445,7 @@ docker compose -f ~/.immortality/docker-compose.yml up -d postgres
 immortality setup
 immortality doctor
 ```
+
+## Version
+
+**Current:** v0.4.0-dev (Weeks 8-9 complete, May 24, 2026)
