@@ -37,6 +37,7 @@ from src.utils.index import (
 
 
 logger = logging.getLogger(__name__)
+LOG_FMT = '%(asctime)s [%(levelname)s] %(name)s: %(message)s'
 
 
 def _getMessageCharCount(message: BaseMessage) -> int:
