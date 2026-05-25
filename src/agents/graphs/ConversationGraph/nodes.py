@@ -686,3 +686,20 @@ if state.get
             await upsertFineGrainedFeed(ins['fr_id'],ins)
             updates.append({'type':'feed','insight':ins})
     return {'sync_count':len(insights),'updates':updates}
+# WP3.5: Topic-segmented rolling summary with semantic shift detection
+async def _summarizeByTopic(msgs, embedding_fn):
+    segments = []
+    for m in msgs:
+        if not segments or _detectSemanticShift(m['content'], segments[-1]['text'], embedding_fn):
+            segments.append({'topic':_extractTopic(m['content']),'text':m['content']})
+        else:
+            segments[-1]['text'] += '\n' + m['content']
+    return '\n---\n'.join(f"[{s['topic']}] {s['text']}" for s in segments)
+
+async def _detectSemanticShift(a, b, emb_fn):
+    va, vb = await emb_fn(a), await emb_fn(b)
+    from numpy import dot
+    from numpy.linalg import norm
+    return dot(va, vb) / (norm(va) * norm(vb)) < 0.7
+
+rolling_summary = await _generateSummary
