@@ -46,6 +46,28 @@ def handle_show_persona(open_id,fr_id):
     fr=getFigureAndRelation(info['user_id'],fr_id).get('figure_and_relation')
     return _buildPersonaCard({'figure_name':info['figure_name'],'core_personality':fr.get('core_personality',''),'core_interaction_style':fr.get('core_interaction_style','')})
 
+# WP4.6: Null-safe card rendering with progress indicator
+DEFAULT_PLACEHOLDERS = {
+    'core_personality': '人格信息收集中...',
+    'core_interaction_style': '互动模式分析中...',
+    'core_procedural_info': '行为习惯整理中...',
+    'core_memory': '记忆片段提取中...',
+}
+BUILD_STAGES = ['input_parsed','llm_extracting','conflict_checking','complete']
+
+def _nullSafeCard(data: dict, stage: str = 'complete') -> dict:
+    elements = []
+    for k in ['core_personality','core_interaction_style','core_procedural_info','core_memory']:
+        val = data.get(k) or DEFAULT_PLACEHOLDERS[k]
+        truncated = val[:500] + ('...' if len(val) > 500 else '')
+        elements.append({'tag':'div','text':truncated})
+    if stage != 'complete':
+        idx = BUILD_STAGES.index(stage) if stage in BUILD_STAGES else 0
+        progress_bar = '●' * (idx+1) + '○' * (3-idx)
+        elements.append({'tag':'hr'})
+        elements.append({'tag':'div','text':f'Build Progress: {progress_bar} ({stage})'})
+    return {'header':{'title':data.get('figure_name','Persona')},'elements':elements}
+
 def _buildPersonaCard(data: dict) -> dict:
     """WP4.2 fix: verified field mapping."""
     fields = ['core_personality','core_interaction_style','core_procedural_info','core_memory']
