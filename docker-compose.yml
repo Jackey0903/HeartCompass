@@ -15,5 +15,11 @@ services:
     depends_on:[db]
     environment:
       DATABASE_URL:postgresql://${DB_USER}:${DB_PASSWORD}@db:5432/heartcompass
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${DB_USER} -d heartcompass && psql -U $${DB_USER} -d heartcompass -c 'SELECT count(*) FROM pg_available_extensions WHERE name=\"vector\"' | grep -q 1"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+      start_period: 15s
 volumes:
   pgdata:
