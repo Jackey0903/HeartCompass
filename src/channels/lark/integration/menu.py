@@ -55,6 +55,16 @@ DEFAULT_PLACEHOLDERS = {
 }
 BUILD_STAGES = ['input_parsed','llm_extracting','conflict_checking','complete']
 
+# WP4.6: Dark-mode palette
+DARK_PALETTE = {'bg':'#1E1E1E','text':'#E0E0E0','accent':'#5D8AA8','divider':'#333333'}
+
+def _applyTheme(elements, theme='light'):
+    if theme == 'dark':
+        for el in elements:
+            el['tag'] = el.get('tag','div')
+            el['style'] = f"background:{DARK_PALETTE['bg']};color:{DARK_PALETTE['text']}"
+    return elements
+
 def _nullSafeCard(data: dict, stage: str = 'complete') -> dict:
     elements = []
     for k in ['core_personality','core_interaction_style','core_procedural_info','core_memory']:
