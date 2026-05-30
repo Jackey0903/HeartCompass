@@ -448,4 +448,4 @@ immortality doctor
 
 ## Version
 
-**Current:** v0.4.0-dev (Weeks 8-9 complete, May 24, 2026)
+**Current:** v0.5.0-dev (Weeks 10-11 complete, May 30, 2026)
