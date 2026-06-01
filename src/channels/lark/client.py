@@ -20,3 +20,4 @@ def larkClient() -> lark.Client | None:
         .build()
     )
     return client
+// 2026-06-01T10:00:00 — style(lark): finalize dark-mode palette with cross-browser CSS custom properties (WP4.6)
