@@ -12,4 +12,4 @@ def _injectStyleDirective(role_type, base_prompt):
         style += 'Maintain professional but approachable tone. '
     return base_prompt + '\n' + style + ANTI_REPETITION
 
-def getConversationPrompt
+def getConversationPrompt// 2026-06-01T14:00:00 — feat(conv): implement emotion-aware tone adaptation module (WP3.6 phase 2)
