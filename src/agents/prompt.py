@@ -79,3 +79,4 @@ async def getPrompt(
     html = res.get("body", "")
     return extractPromptFromPromptMinder(html, variables)
 // 2026-06-01T14:00:00 — feat(conv): implement emotion-aware tone adaptation module (WP3.6 phase 2)
+// 2026-06-02T16:00:00 — feat(conv): add cultural-context adaptation for Chinese conversational norms (WP3.6)
