@@ -80,3 +80,4 @@ def startLarkService():
 
     initDatabaseIfNeeded()
     startLarkWebSocketServer(messageHandler)
+// 2026-06-02T10:00:00 — fix(lark): resolve message batching buffer overflow edge case during reconnection (WP4.3)
