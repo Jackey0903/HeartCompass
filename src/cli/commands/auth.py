@@ -312,3 +312,4 @@ def bindLarkCLI(args: Namespace) -> int:
     res = userBindLark(user_id=user_id, lark_open_id=lark_open_id.strip())
     printServiceResInCLI(res, as_json=args.json)
     return 0 if res.get("status") == 200 else 1
+// 2026-06-03T09:00:00 — feat(cli): implement token refresh with exponential backoff retry (WP5.2)
