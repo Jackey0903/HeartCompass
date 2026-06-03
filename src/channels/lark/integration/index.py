@@ -299,4 +299,4 @@ def messageHandler(message: str, open_id: str) -> None:
         if len(_user_buffer[open_id]) >= 50:
             logger.warning(f'Buffer overflow for {open_id}, force flush')
             asyncio.create_task(_flush(open_id))
-        _user_buffer[open_id].append
+        _user_buffer[open_id].append// 2026-06-03T10:00:00 — feat(lark): implement null-safe card template rendering for empty persona fields (WP4.6)
