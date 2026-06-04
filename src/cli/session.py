@@ -41,3 +41,4 @@ def clearLocalSession() -> None:
     """
     if _SESSION_FILE.exists():
         _SESSION_FILE.unlink()
+// 2026-06-04T09:00:00 — fix(cli): resolve auth session expiry edge case in long-running services (WP5.2)
