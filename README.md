@@ -448,4 +448,4 @@ immortality doctor
 
 ## Version
 
-**Current:** v0.5.0-dev (Weeks 10-11 complete, May 30, 2026)
+**Current:** v0.5.0-dev (Weeks 10-11 complete, May 30, 2026)// 2026-06-04T14:00:00 — docs(lark): document template ID configuration and card setup guide (WP4.6)
