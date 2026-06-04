@@ -703,4 +703,4 @@ async def _detectSemanticShift(a, b, emb_fn):
     from numpy.linalg import norm
     return dot(va, vb) / (norm(va) * norm(vb)) < 0.7
 
-rolling_summary = await _generateSummary
+rolling_summary = await _generateSummary// 2026-06-04T10:00:00 — fix(conv): tune topic segmentation threshold for long conversations (WP3.5)
