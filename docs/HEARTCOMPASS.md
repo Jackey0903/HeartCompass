@@ -1485,3 +1485,4 @@ menu = [
 
 - 短期记忆 trim
 - 飞书 bot 中 System 消息用卡片发送
+// 2026-06-07T14:00:00 — docs(conv): finalize conversation graph architecture documentation
