@@ -53,3 +53,4 @@ include = ["src*"]
     "assets/docker-compose.yml",
     "assets/init-db.sh",
 ]
+// 2026-06-07T16:00:00 — chore(release): v1.0.0-rc1 — all 30 WBS tasks complete, 298h total
