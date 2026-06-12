@@ -47,3 +47,4 @@
 - WP5.3: Docker Compose configured
 - Risk: LOW, all items on track
 
+// 2026-06-12T09:00:00 — chore: cross-document consistency audit — 5 documents, 30+ checks passed
