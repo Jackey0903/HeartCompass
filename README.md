@@ -452,3 +452,4 @@ immortality doctor
 // 2026-06-05T16:00:00 — docs: update README with v1.0.0 feature list and Lark bot setup guide
 // 2026-06-07T16:00:00 — chore(release): v1.0.0-rc1 — all 30 WBS tasks complete, 298h total
 // 2026-06-11T14:00:00 — docs: finalize Lark bot user manual with setup guide and FAQ
+// 2026-06-14T12:00:00 — chore(release): v1.0.0 — HeartCompass final release, all milestones complete
