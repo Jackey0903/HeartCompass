@@ -448,8 +448,4 @@ immortality doctor
 
 ## Version
 
-**Current:** v0.5.0-dev (Weeks 10-11 complete, May 30, 2026)// 2026-06-04T14:00:00 — docs(lark): document template ID configuration and card setup guide (WP4.6)
-// 2026-06-05T16:00:00 — docs: update README with v1.0.0 feature list and Lark bot setup guide
-// 2026-06-07T16:00:00 — chore(release): v1.0.0-rc1 — all 30 WBS tasks complete, 298h total
-// 2026-06-11T14:00:00 — docs: finalize Lark bot user manual with setup guide and FAQ
-// 2026-06-14T12:00:00 — chore(release): v1.0.0 — HeartCompass final release, all milestones complete
+**Current:** v1.0.0 (Released June 2026, all milestones complete)

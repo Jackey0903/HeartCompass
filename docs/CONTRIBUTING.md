@@ -47,4 +47,3 @@
 - 请确保你对远端仓库有 push tag 权限。
 - tag 一旦推送会触发发布，请先确认版本号与变更内容正确。
 - 若本地有未提交修改，建议先提交或暂存后再执行发布脚本。
-// 2026-06-13T16:00:00 — docs: add contributing guide and code review process documentation
