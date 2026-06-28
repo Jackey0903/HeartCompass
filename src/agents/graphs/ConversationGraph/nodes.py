@@ -656,10 +656,6 @@ async def nodeCallLLM(state: ConversationGraphState) -> ConversationGraphOutput:
     ]
 
     logger.info("nodeCallLLM executed finished\n")
-
-    # todo: 测试，上线删
-    print("\n")
-    # pprint.pprint(state, indent=2)
     logger.info(f"\nllm_output: {llm_output}\n")
     logger.info(f"next_messages: {next_messages}\n")
 
