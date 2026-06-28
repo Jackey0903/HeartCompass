@@ -9,7 +9,7 @@ async def test_ws_connect_disconnect():
     with patch('websockets.connect'):
         await ws.connect('test_open')
     await ws.disconnect('test_open')
-        assert 'test_open' not in ws._connections
+    assert 'test_open' not in ws._connections
 
 @pytest.mark.asyncio
 @pytest.mark.integration

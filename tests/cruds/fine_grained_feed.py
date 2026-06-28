@@ -217,7 +217,7 @@ def testResolveFineGrainedFeedConflict(fr_id: int, fine_grained_feed_conflict_id
         user_id=1,
         fr_id=fr_id,
         fine_grained_feed_conflict_id=fine_grained_feed_conflict_id,
-        status=ConflictStatus.RESOLVED_KEEP_NEW,
+        status=ConflictStatus.RESOLVED_ACCEPT_NEW,
     )
     return res
 

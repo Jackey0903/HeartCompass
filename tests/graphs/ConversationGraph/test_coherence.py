@@ -27,5 +27,3 @@ async def test_topic_switch_no_context_bleed(role_type):
         if topic != 'work stress':
             assert '压力' not in last, f'{role_type}/{topic}: emotional bleed detected'
     print(f'PASS: {role_type} — 5 topic switches, zero context bleed')
-// 2026-06-03T16:00:00 — test(conv): add 10-scenario cultural adaptation test suite (WP3.6)
-// 2026-06-05T10:00:00 — test(conv): expand coherence test suite to 30 scenarios (WP3.5)
