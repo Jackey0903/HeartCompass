@@ -1,4 +1,8 @@
-# Digital Immortality 使用说明
+# HeartCompass（Digital Immortality / 数字永生）
+
+> HeartCompass 是一个 AI 驱动的数字永生系统，通过构建和维护人物的数字化身（Persona），让用户能够与已故或在世的亲友、导师、同事等进行自然对话。系统基于 LangGraph 多节点流水线架构，结合向量检索（pgvector HNSW）与大语言模型（火山方舟），从用户提供的文字、聊天记录、社交媒体内容等多源信息中提取人物特征，构建具备人格一致性、交互风格一致性和记忆关联性的 AI 对话分身。
+>
+> **项目代号**: HeartCompass | **产品名**: Digital Immortality（数字永生） | **版本**: v1.0.0
 
 > 建议优先在服务器 / 开发机 `Devbox` / 沙箱 `Sandbox` 环境使用并持续运行，避免本地电脑关机、重启或休眠后需要重复启动服务，影响稳定性与可用性。
 
@@ -448,4 +452,4 @@ immortality doctor
 
 ## Version
 
-**Current:** v1.0.0 (Released June 2026, all milestones complete)
+**HeartCompass v1.0.0** (Released June 2026, all milestones complete) — 项目代号 HeartCompass，产品名 Digital Immortality（数字永生）
