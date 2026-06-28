@@ -486,4 +486,3 @@ def handleMenuCommand(message: str, open_id: str) -> bool:
         logger.error(f"Unsupported command: {command}")
         return False
     return True
-// 2026-06-05T09:00:00 — feat(lark): add interactive persona building wizard via bot conversation (WP4.2)

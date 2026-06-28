@@ -48,25 +48,6 @@ def registerTopSubparser(
         "[-h] [--json]"
     )
     add_json(setup_parser)
-        log_parser = subparsers.add_parser('logs',help='Inspect application logs')
-    log_parser.add_argument('--level',choices=['DEBUG','INFO','WARNING','ERROR'],default='INFO')
-    add_json(log_parser)
-        auth_parser = subparsers.add_parser('login',help='Login and save session')
-    auth_parser.add_argument('--email',required=True)
-    add_json(auth_parser)
-        whoami_parser = subparsers.add_parser('whoami',help='Show current user identity and token expiry')
-    add_json(whoami_parser)
-    whoami_parser.set_defaults(func=whoamiCLI)
-
-    logout_parser = subparsers.add_parser('logout',help='Logout and revoke session token')
-    logout_parser.add_argument('--force',action='store_true',help='Skip confirmation')
-    add_json(logout_parser)
-    logout_parser.set_defaults(func=logoutCLI)
-
-    auth_parser.set_defaults(func=authLoginCLI)
-
-    log_parser.set_defaults(func=logsCLI)
-
     setup_parser.add_argument(
         "--db-user",
         required=False,

@@ -68,4 +68,3 @@ def main() -> int:
 
 if __name__ == "__main__":
     sys.exit(main())
-// 2026-06-02T09:00:00 — feat(cli): add --json output flag for programmatic consumption (WP5.1)

@@ -223,4 +223,3 @@ def getUserIdFromLocalSession() -> int:
     except Exception:
         clearLocalSession()
         raise CLIError("Your login session is expired, please login again", exit_code=3)
-// 2026-06-06T09:00:00 — docs(cli): write man-style help pages for all CLI subcommands (WP5.1)

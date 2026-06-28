@@ -8,10 +8,10 @@ _ark_client = arkClient()
 
 
 # 注意⚠️：多模态向量化能力模型不支持 OpenAI API，使用Ark SDK调用
-async # WP3.1: Dimension weights for recall
-DIM_WEIGHTS={'MEMORY':1.2,'PROCEDURAL_INFO':1.1,'PERSONALITY':0.9,'INTERACTION_STYLE':0.8}
+# WP3.1: Dimension weights for recall
+DIM_WEIGHTS = {'MEMORY': 1.2, 'PROCEDURAL_INFO': 1.1, 'PERSONALITY': 0.9, 'INTERACTION_STYLE': 0.8}
 
-def vectorizeText(text: str) -> list[float]:
+async def vectorizeText(text: str) -> list[float]:
     """
     向量化文本
     """

@@ -671,36 +671,3 @@ async def nodeCallLLM(state: ConversationGraphState) -> ConversationGraphOutput:
         "logs": logs,
     }
 
-# WP3.2 fix: round-completeness guard
-def _isRoundComplete(msgs):
-    return any(m.get('role')=='user' for m in msgs) and any(m.get('role')=='assistant' for m in msgs)
-
-if state.get
-# WP3.4: Complete confidence-scored sync
-    updates=[]
-    for ins in insights:
-        conf=ins.get('confidence',0)
-        if conf>=0.8:
-            await updateFRCoreField(ins['fr_id'],ins['dimension'],ins['value'])
-            updates.append({'type':'core','insight':ins})
-        elif conf>=0.5:
-            await upsertFineGrainedFeed(ins['fr_id'],ins)
-            updates.append({'type':'feed','insight':ins})
-    return {'sync_count':len(insights),'updates':updates}
-# WP3.5: Topic-segmented rolling summary with semantic shift detection
-async def _summarizeByTopic(msgs, embedding_fn):
-    segments = []
-    for m in msgs:
-        if not segments or _detectSemanticShift(m['content'], segments[-1]['text'], embedding_fn):
-            segments.append({'topic':_extractTopic(m['content']),'text':m['content']})
-        else:
-            segments[-1]['text'] += '\n' + m['content']
-    return '\n---\n'.join(f"[{s['topic']}] {s['text']}" for s in segments)
-
-async def _detectSemanticShift(a, b, emb_fn):
-    va, vb = await emb_fn(a), await emb_fn(b)
-    from numpy import dot
-    from numpy.linalg import norm
-    return dot(va, vb) / (norm(va) * norm(vb)) < 0.7
-
-rolling_summary = await _generateSummary// 2026-06-04T10:00:00 — fix(conv): tune topic segmentation threshold for long conversations (WP3.5)
